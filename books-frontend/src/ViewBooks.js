@@ -8,16 +8,13 @@ const ViewBooks = () => {
 
   const [booksState, setBooksState] = useState(null);
 
-  const getBooks = async (id) => {
+  const getBooks = async () => {
     let response = await axios.get(`http://localhost:3000/books`);
-    console.log(response.data);
     setBooksState(response.data);
   };
 
   const deleteBook = async (id) => {
-    console.log(id)
     await axios.delete(`http://localhost:3000/books/${id}`)
-    console.log('deleted')
     setBooksState(booksState.filter((book) => book.id !== id))
   }
 
