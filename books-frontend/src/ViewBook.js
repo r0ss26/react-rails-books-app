@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const ViewBook = (props) => {
   const [bookState, setBookState] = useState(null);
@@ -17,9 +18,12 @@ const ViewBook = (props) => {
 
 
   return (
-    <div>
-      {bookState && <li>{bookState.title} by {bookState.author}</li>}
-    </div>
+    <>
+      <div>
+        {bookState && <li>{bookState.title} by {bookState.author}</li>}
+      </div>
+      <Link to="/">Go Home</Link>
+    </>
   )
 }
 
