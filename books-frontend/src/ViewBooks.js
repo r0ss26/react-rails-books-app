@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const ViewBooks = () => {
   const [booksState, setBooksState] = useState(null);
@@ -18,7 +19,7 @@ const ViewBooks = () => {
   return (
     <div>
       {booksState && booksState.map((book, index) => (
-        <li key={index}>{book.title} by {book.author}</li>
+        <li key={index}><Link to={`/books/${book.id}`}>{book.title}</Link> by {book.author}</li>
       ))}
     </div>
   )
