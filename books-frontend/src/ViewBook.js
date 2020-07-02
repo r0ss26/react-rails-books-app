@@ -6,9 +6,7 @@ const ViewBook = (props) => {
   const [bookState, setBookState] = useState(null);
 
   const getBook = async () => {
-    console.log(props)
     let response = await axios.get(`http://localhost:3000/books/${props.match.params.id}`);
-    console.log(response.data);
     setBookState(response.data);
   }
 
